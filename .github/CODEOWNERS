@@ -1,0 +1,8 @@
+* @Software262/tech-leads
+
+frontend/ @Software262/frontend-ps-devs
+src/ @Software262/frontend-ps-devs
+*.tsx @Software262/frontend-ps-devs
+
+docs/ @Software262/tech-leads
+.github/ @Software262/tech-leads
