@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './app/router/index'
 import { Route as DashboardTestsIndexRouteImport } from './app/router/dashboard/tests/index'
 import { Route as DashboardRectoriaIndexRouteImport } from './app/router/dashboard/rectoria/index'
 import { Route as DashboardEnrollmentIndexRouteImport } from './app/router/dashboard/enrollment/index'
+import { Route as DashboardDeportesIndexRouteImport } from './app/router/dashboard/deportes/index'
 import { Route as DashboardBandIndexRouteImport } from './app/router/dashboard/band/index'
 import { Route as DashboardEnrollmentStudentIdIndexRouteImport } from './app/router/dashboard/enrollment/student/$id/index'
 
@@ -43,6 +44,11 @@ const DashboardEnrollmentIndexRoute =
     path: '/enrollment/',
     getParentRoute: () => DashboardRouteRoute,
   } as any)
+const DashboardDeportesIndexRoute = DashboardDeportesIndexRouteImport.update({
+  id: '/deportes/',
+  path: '/deportes/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardBandIndexRoute = DashboardBandIndexRouteImport.update({
   id: '/band/',
   path: '/band/',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/dashboard/band/': typeof DashboardBandIndexRoute
+  '/dashboard/deportes/': typeof DashboardDeportesIndexRoute
   '/dashboard/enrollment/': typeof DashboardEnrollmentIndexRoute
   '/dashboard/rectoria/': typeof DashboardRectoriaIndexRoute
   '/dashboard/tests/': typeof DashboardTestsIndexRoute
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/dashboard/band': typeof DashboardBandIndexRoute
+  '/dashboard/deportes': typeof DashboardDeportesIndexRoute
   '/dashboard/enrollment': typeof DashboardEnrollmentIndexRoute
   '/dashboard/rectoria': typeof DashboardRectoriaIndexRoute
   '/dashboard/tests': typeof DashboardTestsIndexRoute
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/dashboard/band/': typeof DashboardBandIndexRoute
+  '/dashboard/deportes/': typeof DashboardDeportesIndexRoute
   '/dashboard/enrollment/': typeof DashboardEnrollmentIndexRoute
   '/dashboard/rectoria/': typeof DashboardRectoriaIndexRoute
   '/dashboard/tests/': typeof DashboardTestsIndexRoute
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/band/'
+    | '/dashboard/deportes/'
     | '/dashboard/enrollment/'
     | '/dashboard/rectoria/'
     | '/dashboard/tests/'
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/band'
+    | '/dashboard/deportes'
     | '/dashboard/enrollment'
     | '/dashboard/rectoria'
     | '/dashboard/tests'
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard'
     | '/dashboard/band/'
+    | '/dashboard/deportes/'
     | '/dashboard/enrollment/'
     | '/dashboard/rectoria/'
     | '/dashboard/tests/'
@@ -155,6 +167,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardEnrollmentIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/deportes/': {
+      id: '/dashboard/deportes/'
+      path: '/deportes'
+      fullPath: '/dashboard/deportes/'
+      preLoaderRoute: typeof DashboardDeportesIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/band/': {
       id: '/dashboard/band/'
       path: '/band'
@@ -174,6 +193,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteRouteChildren {
   DashboardBandIndexRoute: typeof DashboardBandIndexRoute
+  DashboardDeportesIndexRoute: typeof DashboardDeportesIndexRoute
   DashboardEnrollmentIndexRoute: typeof DashboardEnrollmentIndexRoute
   DashboardRectoriaIndexRoute: typeof DashboardRectoriaIndexRoute
   DashboardTestsIndexRoute: typeof DashboardTestsIndexRoute
@@ -182,6 +202,7 @@ interface DashboardRouteRouteChildren {
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardBandIndexRoute: DashboardBandIndexRoute,
+  DashboardDeportesIndexRoute: DashboardDeportesIndexRoute,
   DashboardEnrollmentIndexRoute: DashboardEnrollmentIndexRoute,
   DashboardRectoriaIndexRoute: DashboardRectoriaIndexRoute,
   DashboardTestsIndexRoute: DashboardTestsIndexRoute,
